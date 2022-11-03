@@ -1,0 +1,4 @@
+string tf_name
+ik_solver_msgs/Configuration[] seeds
+---
+ik_solver_msgs/Configuration[] solutions
