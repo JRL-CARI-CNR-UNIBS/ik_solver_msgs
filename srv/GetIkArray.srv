@@ -1,8 +1,9 @@
-string tf_name
+geometry_msgs/PoseArray poses
+
 ik_solver_msgs/Configuration[] seeds
 string[] seed_joint_names
 uint32 max_number_of_solutions # if zero, use default.
 uint32 stall_iterations # if zero, use default.
 ---
-ik_solver_msgs/IkSolution solution
+ik_solver_msgs/IkSolution[] solutions
 string[] joint_names

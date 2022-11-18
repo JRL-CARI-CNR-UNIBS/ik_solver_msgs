@@ -12,22 +12,27 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   std_msgs
+  moveit_msgs
   message_generation
 )
 
 add_message_files(
   FILES
   Configuration.msg
+  CollisionResult.msg
+  IkSolution.msg
 )
 
 add_service_files(
   FILES
   GetIk.srv
+  GetIkArray.srv
+  CollisionChecking.srv
 )
 
 generate_messages(
   DEPENDENCIES
-  geometry_msgs std_msgs 
+  geometry_msgs std_msgs moveit_msgs
 )
 
 catkin_package(
