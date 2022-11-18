@@ -7,19 +7,28 @@ This package provide messages to compute all the IK solutions for a TF
 
 ### msg
 
-- _Configuration_ joint state
+- __Configuration__
 
 ```yaml
 float64[] configuration #joint state
+```
+
+- __IkSolution__
+
+```yaml
+ik_solver_msgs/Configuration[] configurations
 ```
 
 - __CollisionResult__
 
 ```yaml
 ik_solver_msgs/Configuration solution
+string[] colliding_obj_first
+string[] colliding_obj_second
+bool out_of_bound
 float64 feasibility # 0 collision, 1 fully feasible
-string[] colliding_links # compute only is detailed collisions are available
-float64 distance    # distance w.r.t. obstacles. compute only is detailed collisions are available
+float64 distance    # distance w.r.t. obstacles
+time stamp
 ````
 
 ### srv
@@ -29,8 +38,11 @@ float64 distance    # distance w.r.t. obstacles. compute only is detailed collis
 ```yaml
 string tf_name
 ik_solver_msgs/Configuration[] seeds
+string[] seed_joint_names
+uint32 max_number_of_solutions # if zero, use default.
+uint32 stall_iterations # if zero, use default.
 ---
-ik_solver_msgs/Configuration[] solutions
+ik_solver_msgs/IkSolution solution
 string[] joint_names
 ```
 
@@ -38,7 +50,7 @@ string[] joint_names
 
 - _seeds_ list of configurations used as seeds (not mandatory)
 
-- _solutions_ list of solutions
+- _solution_ list of solutions
 
 - _joint_names_ list of joint names
 
