@@ -54,6 +54,28 @@ string[] joint_names
 
 - _joint_names_ list of joint names
 
+- __GetIkArray__
+
+```yaml
+geometry_msgs/PoseArray poses
+
+ik_solver_msgs/Configuration[] seeds
+string[] seed_joint_names
+uint32 max_number_of_solutions # if zero, use default.
+uint32 stall_iterations # if zero, use default.
+---
+ik_solver_msgs/IkSolution[] solutions
+string[] joint_names
+```
+
+- _poses_ list of poses (frame defined in header/frame_id)
+
+- _seeds_ list of configurations used as seeds for the first pose (not mandatory). Solutions of previous pose are used as seeds for the following one.
+
+- _solutions_ list of list of solutions
+
+- _joint_names_ list of joint names
+
 - __CollisionChecking__
 ```yaml
 ik_solver_msgs/Configuration[] solutions
