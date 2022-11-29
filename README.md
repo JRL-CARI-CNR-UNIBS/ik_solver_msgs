@@ -80,8 +80,10 @@ string[] joint_names
 ```yaml
 ik_solver_msgs/Configuration[] solutions
 string[] joint_names
+bool detailed # compute distances and colliding links
+moveit_msgs/PlanningScene planning_scene
 ---
-ik_solver_msgs/CollisionResult[]
+ik_solver_msgs/CollisionResult[] result
 ```
 
 ## Test
