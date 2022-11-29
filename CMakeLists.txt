@@ -28,6 +28,7 @@ add_service_files(
   GetIk.srv
   GetIkArray.srv
   CollisionChecking.srv
+  NeighbourhoodPyramidIk.srv
 )
 
 generate_messages(

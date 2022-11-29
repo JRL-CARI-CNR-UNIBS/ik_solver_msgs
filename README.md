@@ -76,7 +76,52 @@ string[] joint_names
 
 - _joint_names_ list of joint names
 
+
+- __NeighbourhoodPyramidIk__
+
+Check inverse kinematics in a Neighbourhood Pyramid around a tf names _tf_name_
+
+```yaml
+# this service compute the IK for a pyramid with apex in [tf_name] frame and a square base.
+# the four lateral faces are tested, while the inner volume is tested along the diagonals.
+
+string tf_name # reference frame of the pyramid
+uint32 max_number_of_solutions # if zero, use default.
+uint32 stall_iterations # if zero, use default.
+
+# the neighbourhood pyramid has a square base in the plane XY
+float64 width # width of the pyramid base
+float64 distance # height of the pyramid (in +Z direction)
+float64 resolution # distance between testing points
+
+# for each point of the pyramid the following orientation (referred to tf_name frame)
+# are tested:
+# rpy: [0,0,0]
+# rpy: [+roll,+pitch,+yaw]
+# rpy: [+roll,+pitch,-yaw]
+# rpy: [+roll,-pitch,+yaw]
+# rpy: [+roll,-pitch,-yaw]
+# rpy: [-roll,+pitch,+yaw]
+# rpy: [-roll,+pitch,-yaw]
+# rpy: [-roll,-pitch,+yaw]
+# rpy: [-roll,-pitch,-yaw]
+float64 roll
+float64 pitch
+float64 yaw
+---
+# number of poses with cannot be reached by any IK solution
+int32 number_of_unreachable_poses
+
+# list of tested poses
+geometry_msgs/PoseArray poses
+
+# list of list of ik solutions
+ik_solver_msgs/IkSolution[] solution
+string[] joint_names
+```
+
 - __CollisionChecking__
+
 ```yaml
 ik_solver_msgs/Configuration[] solutions
 string[] joint_names
