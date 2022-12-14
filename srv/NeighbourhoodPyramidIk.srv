@@ -31,6 +31,8 @@ int32 number_of_unreachable_poses
 # list of tested poses
 geometry_msgs/PoseArray poses
 
+# list of tested poses
+geometry_msgs/PoseArray unreachable_poses
 # list of list of ik solutions
 ik_solver_msgs/IkSolution[] solutions
 string[] joint_names
