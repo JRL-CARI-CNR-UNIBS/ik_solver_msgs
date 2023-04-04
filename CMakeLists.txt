@@ -27,6 +27,7 @@ add_service_files(
   FILES
   GetIk.srv
   GetIkArray.srv
+  GetFkArray.srv
   CollisionChecking.srv
   NeighbourhoodPyramidIk.srv
 )

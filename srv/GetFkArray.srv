@@ -1,0 +1,5 @@
+
+ik_solver_msgs/Configuration[] configurations
+string[] joint_names
+---
+geometry_msgs/PoseArray poses
