@@ -30,6 +30,7 @@ add_service_files(
   GetFkArray.srv
   CollisionChecking.srv
   NeighbourhoodPyramidIk.srv
+  GetBound.srv
 )
 
 generate_messages(
