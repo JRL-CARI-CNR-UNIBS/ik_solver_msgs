@@ -21,6 +21,7 @@ add_message_files(
   Configuration.msg
   CollisionResult.msg
   IkSolution.msg
+  IkTarget.msg
 )
 
 add_service_files(
