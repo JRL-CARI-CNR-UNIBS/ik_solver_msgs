@@ -1,5 +1,5 @@
-string tf_name
-ik_solver_msgs/Configuration[] seeds
+ik_solver_msgs/IkTarget target
+
 string[] seed_joint_names
 uint32 max_number_of_solutions # if zero, use default.
 uint32 stall_iterations # if zero, use default.

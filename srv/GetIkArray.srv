@@ -1,11 +1,14 @@
 ik_solver_msgs/IkTarget[] targets
 
-string frame_id
 string[] seed_joint_names
 uint32 max_number_of_solutions # if zero, use default.
 uint32 stall_iterations # if zero, use default.
 
-bool parallelize
+uint8 PARALLELIZE_DEFAULT=0
+uint8 PARALLELIZE_FORCE=1
+uint8 PARALLELIZE_DISABLE=2
+
+uint8 parallelize
 bool exploit_solutions_as_seed
 ---
 ik_solver_msgs/IkSolution[] solutions
