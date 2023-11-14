@@ -9,7 +9,13 @@ uint8 PARALLELIZE_FORCE=1
 uint8 PARALLELIZE_DISABLE=2
 
 uint8 parallelize
-bool exploit_solutions_as_seed
+
+uint8 UPDATE_RECURSIVELY_SEEDS_DEFAULT=0
+uint8 UPDATE_RECURSIVELY_SEEDS_FORCE=1
+uint8 UPDATE_RECURSIVELY_SEEDS_DISABLE=2
+uint8 update_recursively_seeds
+
+
 ---
 ik_solver_msgs/IkSolution[] solutions
 string[] joint_names
