@@ -22,6 +22,8 @@ add_message_files(
   CollisionResult.msg
   IkSolution.msg
   IkTarget.msg
+  JointRange.msg
+  JointRanges.msg
 )
 
 add_service_files(

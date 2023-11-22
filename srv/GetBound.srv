@@ -1,4 +1,4 @@
 ---
 string[] joint_names
-float64[] upper_bound
-float64[] lower_bound
+JointRanges[] boundaries
+
