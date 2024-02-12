@@ -9,36 +9,77 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-find_package(catkin REQUIRED COMPONENTS
-  geometry_msgs
-  std_msgs
-  moveit_msgs
-  message_generation
-)
+set(ROS_VERSION $ENV{ROS_VERSION})
+if(NOT((${ROS_VERSION} EQUAL 1) OR (${ROS_VERSION} EQUAL 2)))
+  message(FATAL_ERROR "No version of ROS found!")
+endif()
 
-add_message_files(
-  FILES
-  Configuration.msg
-  CollisionResult.msg
-  IkSolution.msg
-  IkTarget.msg
-)
+list(APPEND ik_msgs Configuration.msg
+                    CollisionResult.msg
+                    IkSolution.msg
+                    IkTarget.msg
+                    )
 
-add_service_files(
-  FILES
-  GetIk.srv
-  GetIkArray.srv
-  GetFk.srv
-  GetFkArray.srv
-  CollisionChecking.srv
-  NeighbourhoodPyramidIk.srv
-  GetBound.srv
-)
+list(APPEND ik_srvs GetIk.srv
+                    GetFk.srv
+                    GetIkArray.srv
+                    GetFkArray.srv
+                    CollisionChecking.srv
+                    NeighbourhoodPyramidIk.srv
+                    GetBound.srv
+                    )
 
-generate_messages(
-  DEPENDENCIES
-  geometry_msgs std_msgs moveit_msgs
-)
+## ROS 1
+if(${ROS_VERSION} EQUAL 1)
+  find_package(catkin REQUIRED COMPONENTS
+    geometry_msgs
+    std_msgs
+    moveit_msgs
+    message_generation
+  )
 
-catkin_package(
-)
+  add_message_files(
+    FILES
+    ${ik_msgs}
+  )
+
+  add_service_files(
+    FILES
+    ${ik_srvs}
+  )
+
+  generate_messages(
+    DEPENDENCIES
+    geometry_msgs std_msgs moveit_msgs
+  )
+
+  catkin_package(
+  )
+
+## ROS 2
+elseif(${ROS_VERSION} EQUAL 2)
+  list(APPEND ik_msgs_2)
+  foreach(msg ${ik_msgs})
+    string(PREPEND ${msg} "msg/")
+    list(APPEND ik_msgs_2 msg)
+  endforeach()
+  list(APPEND ik_srvs_2)
+  foreach(srv ${ik_srvs})
+    string(PREPEND ${srv} "srv/")
+    list(APPEND ik_srvs_2 srv)
+  endforeach()
+
+  find_package(ament_cmake REQUIRED)
+  find_package(geometry_msgs REQUIRED)
+  find_package(std_msgs      REQUIRED)
+  find_package(moveit_msgs   REQUIRED)
+  find_package(rosidl_default_generators REQUIRED)
+
+  rosidl_generate_interfaces(${PROJECT_NAME}
+    ${ik_msgs_2}
+    ${ik_srvs_2}
+    DEPENDENCIES geometry_msgs std_msgs moveit_msgs
+  )
+
+  ament_package()
+endif()
