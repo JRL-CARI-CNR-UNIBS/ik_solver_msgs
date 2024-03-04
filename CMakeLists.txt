@@ -44,6 +44,7 @@ if(ROS_VERSION EQUAL 1)
     CollisionChecking.srv
     NeighbourhoodPyramidIk.srv
     GetBound.srv
+    ChangeTool.srv
   )
 
   generate_messages(
@@ -75,6 +76,7 @@ message("Compiling for ROS_VERSION == 2")
     "srv/CollisionChecking.srv"
     "srv/NeighbourhoodPyramidIk.srv"
     "srv/GetBound.srv"
+    "srv/ChangeTool.srv"
     DEPENDENCIES geometry_msgs std_msgs moveit_msgs
   )
 
