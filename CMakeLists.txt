@@ -33,6 +33,8 @@ if(ROS_VERSION EQUAL 1)
     CollisionResult.msg
     IkSolution.msg
     IkTarget.msg
+    JointRange.msg
+    JointRanges.msg
   )
 
   add_service_files(
