@@ -34,7 +34,6 @@ if(ROS_VERSION EQUAL 1)
     IkSolution.msg
     IkTarget.msg
     JointRange.msg
-    JointRanges.msg
   )
 
   add_service_files(
@@ -71,6 +70,7 @@ message("Compiling for ROS_VERSION == 2")
     "msg/ros2/CollisionResult.msg"
     "msg/IkSolution.msg"
     "msg/IkTarget.msg"
+    "msg/JointRange.msg"
     "srv/GetIk.srv"
     "srv/GetFk.srv"
     "srv/GetIkArray.srv"
@@ -81,6 +81,7 @@ message("Compiling for ROS_VERSION == 2")
     "srv/ChangeTool.srv"
     DEPENDENCIES geometry_msgs std_msgs moveit_msgs
   )
+
 
   ament_package()
 endif()

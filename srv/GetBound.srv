@@ -1,4 +1,2 @@
 ---
-string[] joint_names
-JointRanges[] boundaries
-
+JointRange[] boundaries
