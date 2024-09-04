@@ -40,6 +40,7 @@ if(ROS_VERSION EQUAL 1)
     FILES
     GetIk.srv
     GetFk.srv
+    GetFrames.srv
     GetIkArray.srv
     GetFkArray.srv
     CollisionChecking.srv
@@ -74,6 +75,7 @@ message("Compiling for ROS_VERSION == 2")
     "srv/GetIk.srv"
     "srv/GetFk.srv"
     "srv/GetIkArray.srv"
+    "srv/GetFrames.srv"
     "srv/GetFkArray.srv"
     "srv/CollisionChecking.srv"
     "srv/NeighbourhoodPyramidIk.srv"
