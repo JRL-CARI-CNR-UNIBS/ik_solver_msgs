@@ -1,0 +1,8 @@
+string tool
+
+---
+uint8 result
+
+uint8 SUCCESS=0
+uint8 TOOL_NOT_FOUND=1
+uint8 SERVICE_REFUSED=2

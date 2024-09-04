@@ -1,1 +1,1 @@
-float64[] configuration
+float64[] configuration # this represents a joint configuration set

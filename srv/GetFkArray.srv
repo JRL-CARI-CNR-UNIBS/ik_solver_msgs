@@ -3,5 +3,6 @@ ik_solver_msgs/Configuration[] configurations
 string[] joint_names
 string reference_frame
 string tip_frame
+bool parallelize
 ---
 geometry_msgs/PoseArray poses
