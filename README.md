@@ -131,6 +131,15 @@ moveit_msgs/PlanningScene planning_scene
 ik_solver_msgs/CollisionResult[] result
 ```
 
+- __SetInitialConfiguration__
+
+```yaml
+ik_solver_msgs/Configuration configuration
+---
+bool success
+string message
+```
+
 ## Test
 run the node _get_tf_ik.py_ providing the name of the IK server and the name of the desired tf. Example:
 ```

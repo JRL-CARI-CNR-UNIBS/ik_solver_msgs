@@ -1,0 +1,5 @@
+ik_solver_msgs/Configuration configuration
+---
+bool success
+string message
+
